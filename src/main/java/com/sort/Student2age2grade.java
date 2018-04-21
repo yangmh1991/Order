@@ -5,6 +5,7 @@ public class Student2age2grade {
     private int age;
     private float grade;
 
+    //id设置与访问
     public void setId(int id){
         this.id = id;
     }
@@ -12,6 +13,7 @@ public class Student2age2grade {
         return id;
     }
 
+    //age设置与访问
     public void setAge(int age){
         this.age = age;
     }
@@ -19,6 +21,7 @@ public class Student2age2grade {
         return age;
     }
 
+    //grade设置与访问
     public void setGrade(float grade){
         this.grade = grade;
     }
