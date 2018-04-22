@@ -6,7 +6,7 @@ import com.opencsv.bean.HeaderColumnNameMappingStrategy;
 import com.opencsv.bean.HeaderColumnNameTranslateMappingStrategy;
 import org.apache.commons.io.input.*;
 import java.util.*;
-
+//读入csv文件
 public class FiledataRead{
     private Reader fr=null;
     FiledataRead(){

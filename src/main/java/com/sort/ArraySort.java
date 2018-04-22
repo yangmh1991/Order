@@ -3,7 +3,7 @@ package com.sort;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
+//排序
 public class ArraySort implements Sorting{
     //id Ascend
     public Comparator<Student2age2grade> idComparatorAsc(){
