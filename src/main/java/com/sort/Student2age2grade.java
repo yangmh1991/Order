@@ -1,9 +1,9 @@
 package com.sort;
 
 public class Student2age2grade {
-    private int id;
-    private int age;
-    private double grade;
+    int id;
+    int age;
+    double grade;
 
     Student2age2grade(int id,int age,double grade){
         this.id=id;

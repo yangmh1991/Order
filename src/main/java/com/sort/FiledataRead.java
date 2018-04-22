@@ -11,7 +11,7 @@ public class FiledataRead{
     private Reader fr=null;
     FiledataRead(){
     }
-    public void readFCsv(String filepath,char separator){
+    public void readFCsv(String filepath){
         try{
             File file = new File(filepath);
             fr = new InputStreamReader(new BOMInputStream(new FileInputStream(file)),"utf-8");
@@ -22,12 +22,12 @@ public class FiledataRead{
             e.printStackTrace();
         }
     }
-    public CSVReader getFr(char separator){
-        CSVReader csvReader = new CSVReader(fr,separator);
+    public CSVReader getFr(){
+        CSVReader csvReader = new CSVReader(fr);
         return  csvReader;
     }
 
-    public List<Student2age2grade> retArray(char separator){
+    public List<Student2age2grade> retArray(){
         HeaderColumnNameTranslateMappingStrategy<Student2age2grade> sta=new HeaderColumnNameTranslateMappingStrategy<Student2age2grade>();
         sta.setType(Student2age2grade.class);
         Map<String,String> mapper=new HashMap<String, String>();
@@ -36,7 +36,7 @@ public class FiledataRead{
         mapper.put("成绩","grade");
         sta.setColumnMapping(mapper);
         CsvToBean<Student2age2grade> csvToBean = new CsvToBean<Student2age2grade>();
-        List<Student2age2grade> list=csvToBean.parse(sta,getFr(separator));
+        List<Student2age2grade> list=csvToBean.parse(sta,getFr());
         for (Student2age2grade p : list) {
             System.out.println(p.toString());
         }
