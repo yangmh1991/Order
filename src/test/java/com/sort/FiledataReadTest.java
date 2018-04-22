@@ -32,6 +32,6 @@ public class FiledataReadTest {
     @Test
     public void retArray() {
         fdr.readFCsv("D:\\app\\csv\\student.csv");
-        List<Student2age2grade> list=fdr.retArray();
+        List<Student2age2grade> list=fdr.retArray(CSVWriter.DEFAULT_SEPARATOR);
     }
 }

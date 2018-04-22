@@ -26,7 +26,7 @@ public class MainTess {
         */
         FiledataRead fdr=new FiledataRead();
         fdr.readFCsv("D:\\student.csv");
-        List<Student2age2grade> list=fdr.retArray();
+        List<Student2age2grade> list=fdr.retArray(CSVWriter.DEFAULT_SEPARATOR);
         ArraySort as=new ArraySort();
         //ConsoleObject
         ConsoleWrite cw=new ConsoleWrite();

@@ -22,12 +22,12 @@ public class FiledataRead{
             e.printStackTrace();
         }
     }
-    public CSVReader getFr(){
-        CSVReader csvReader = new CSVReader(fr);
+    public CSVReader getFr(char separator){
+        CSVReader csvReader = new CSVReader(fr,separator,CSVWriter.NO_QUOTE_CHARACTER);
         return  csvReader;
     }
 
-    public List<Student2age2grade> retArray(){
+    public List<Student2age2grade> retArray(char separator){
         HeaderColumnNameTranslateMappingStrategy<Student2age2grade> sta=new HeaderColumnNameTranslateMappingStrategy<Student2age2grade>();
         sta.setType(Student2age2grade.class);
         Map<String,String> mapper=new HashMap<String, String>();
@@ -36,13 +36,10 @@ public class FiledataRead{
         mapper.put("成绩","grade");
         sta.setColumnMapping(mapper);
         CsvToBean<Student2age2grade> csvToBean = new CsvToBean<Student2age2grade>();
-        List<Student2age2grade> list=csvToBean.parse(sta,getFr());
+        List<Student2age2grade> list=csvToBean.parse(sta,getFr(separator));
         for (Student2age2grade p : list) {
             System.out.println(p.toString());
         }
-        //test
-        Student2age2grade sag=list.get(0);
-        System.out.println(sag.getGrade());
         return list;
     }
 }
