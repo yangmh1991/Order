@@ -46,6 +46,7 @@ public class MainTess {
         cw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
         fsw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
         //age
+        as.sequence(list,as.ageComparatorAsc());
         File file2=new File("D:\\testage.csv");
         try{
             if(!file.exists()){
@@ -58,6 +59,7 @@ public class MainTess {
         cw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
         fsw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
         //grade
+        as.sequence(list,as.gardeComparatorAsc());
         File file3=new File("D:\\testgrade.csv");
         try{
             if(!file.exists()){
