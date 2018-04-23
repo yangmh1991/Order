@@ -25,19 +25,16 @@ public class MainTess {
         }
         */
         FiledataRead fdr=new FiledataRead();
-        fdr.readFCsv("D:\\student.csv");
+        fdr.readFCsv("D:\\test.csv", CSVWriter.DEFAULT_SEPARATOR,CSVWriter.DEFAULT_QUOTE_CHARACTER);
         List<Student2age2grade> list=fdr.retArray(CSVWriter.DEFAULT_SEPARATOR);
         ArraySort as=new ArraySort();
         //ConsoleObject
         ConsoleWrite cw=new ConsoleWrite();
         //Files write
         FilesWrite fsw=new FilesWrite();
-        //age asc
-        as.ageComparatorAsc();
-        as.sequence(list,as.ageComparatorAsc());
-
-        //
-        File file=new File("D:\\test.csv");
+        //id
+        as.sequence(list,as.idComparatorAsc());
+        File file=new File("D:\\testid.csv");
         try{
             if(!file.exists()){
                 file.createNewFile();
@@ -45,8 +42,32 @@ public class MainTess {
         }catch(Exception e){
             e.printStackTrace();
         }
-        Writer wr=FilesWrite.fileWriter("D:\\test.csv");
-        fsw.writeData(',', CSVWriter.NO_QUOTE_CHARACTER,list);
-        cw.writeData(',','\'',list);
+        FilesWrite.fileWriter("D:\\testid.csv");
+        cw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
+        fsw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
+        //age
+        File file2=new File("D:\\testage.csv");
+        try{
+            if(!file.exists()){
+                file.createNewFile();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        FilesWrite.fileWriter("D:\\testage.csv");
+        cw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
+        fsw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
+        //grade
+        File file3=new File("D:\\testgrade.csv");
+        try{
+            if(!file.exists()){
+                file.createNewFile();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        FilesWrite.fileWriter("D:\\testgrade.csv");
+        cw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
+        fsw.writeData(CSVWriter.DEFAULT_SEPARATOR,'\0',list);
     }
 }
