@@ -40,7 +40,6 @@ public class FilesWrite implements DataOutput {
              //写表头
              CSVWriter csvWriter = new CSVWriter(fw,separator,quoteChar);
              String[] header={"学号","年龄","成绩"};
-             csvWriter.writeNext(header);
              BeanToCsv beanToCsv=new BeanToCsv();
              beanToCsv.write(mapper,fw,list);
              csvWriter.close();
